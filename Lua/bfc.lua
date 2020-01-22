@@ -49,7 +49,7 @@ opts = settings.opts or {}
 if opts.set then
 	ast = set_opt(ast)
 end
-if opts.offset or opts.mult or opt.linear then
+if opts.offset or opts.mult or opts.linear then
 	ast = offset_opt(ast)
 	if opts.mult then
 		ast = mult_opt(ast)
