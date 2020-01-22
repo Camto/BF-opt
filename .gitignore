@@ -1,0 +1,6 @@
+
+*.exe
+*.txt
+*.bc
+wb.bat
+write bytes.c
