@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "instructions.h"
+#include "linear opt looping table.h"
 
 #define tape_len 65536
 
