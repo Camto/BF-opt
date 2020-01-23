@@ -7,6 +7,8 @@ return {
 			local instr = node.instr
 			if
 				instrs.is_loop_instr(instr) or
+				instr == instrs.set or
+				instr == instrs.set_offset or
 				instrs.is_io_instr(instr) or
 				instr == instrs.move_left or
 				instr == instrs.move_right
