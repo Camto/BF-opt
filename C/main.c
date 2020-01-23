@@ -19,9 +19,10 @@ Instructions parse_file(char* file_name) {
 	return parse_instrs(prog_len, raw_prog);
 }
 
-void interpret_bf(Instructions instrs) {
+void interpret_bf(Instructions instrs, char* input_str) {
 	size_t tape_ptr = 0;
 	char tape[tape_len] = {};
+	size_t input_ptr = 0;
 	
 	size_t instr_ptr = 0;
 	unsigned char times_to_loop;
@@ -44,6 +45,15 @@ void interpret_bf(Instructions instrs) {
 			break;
 		case output:
 			putc(tape[tape_ptr], stdout);
+			break;
+		case input:
+			if(input_str[input_ptr]) {
+				tape[tape_ptr] = input_str[input_ptr];
+				// printf("\nGAVE %c AS INPUT\n", input_str[input_ptr]);
+				input_ptr++;
+			} else {
+				tape[tape_ptr] = getchar();
+			}
 			break;
 		case begin_loop:
 			if(!tape[tape_ptr]) {
@@ -112,13 +122,17 @@ void interpret_bf(Instructions instrs) {
 }
 
 int main(int argc, char** argv) {
-	if(argc != 2) {
-		printf("Only 1 argument can be passed: the filename of the program.");
+	if(argc != 2 && argc != 3) {
+		printf("Only 1 or 2 arguments can be passed: the filename of the program and the input for the program.");
 		return 0;
 	}
 	
 	Instructions instrs = parse_file(argv[1]);
-	interpret_bf(instrs);
+	if(argc == 2) {
+		interpret_bf(instrs, "");
+	} else {
+		interpret_bf(instrs, argv[2]);
+	}
 	
 	return 0;
 }
