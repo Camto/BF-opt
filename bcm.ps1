@@ -1,0 +1,1 @@
+$args[0] | Measure-Command {./bci $_ | Out-Default}
