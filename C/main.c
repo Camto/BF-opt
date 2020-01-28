@@ -123,7 +123,7 @@ void interpret_bf(Instructions instrs, char* input_str) {
 
 int main(int argc, char** argv) {
 	if(argc != 2 && argc != 3) {
-		printf("Only 1 or 2 arguments can be passed: the filename of the program and the input for the program.");
+		printf("Exactly 1 or 2 arguments must be passed: the filename of the program and the input for the program.\n");
 		return 0;
 	}
 	
