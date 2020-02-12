@@ -34,7 +34,7 @@ else
 	program:close()
 end
 
--- Always do these.
+-- Always do this one.
 ast = parse(code)
 if not settings.noglob then
 	ast = glob_opt(ast)
