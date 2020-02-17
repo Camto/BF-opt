@@ -5,4 +5,4 @@ foreach($i in 1..$args[1]) {
 	$times += $time
 }
 echo $times
-echo "Average is $([math]::Round(($times | Measure-Object -Average).Average, 3))"
+echo "Average is $([math]::Round(($times | Measure-Object -Average).Average, 5))"
